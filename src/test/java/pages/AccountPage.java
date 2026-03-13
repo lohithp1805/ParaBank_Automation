@@ -50,4 +50,9 @@ public class AccountPage {
 
   System.out.println("User logged out successfully");
  }
+ public boolean isAccountPageDisplayed() {
+
+	 return driver.getCurrentUrl().contains("overview");
+
+	}
 }

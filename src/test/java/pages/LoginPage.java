@@ -14,6 +14,7 @@ public class LoginPage {
  By username = By.name("username");
  By password = By.name("password");
  By loginBtn = By.xpath("//input[@value='Log In']");
+ By errorMessage = By.xpath("//p[@class='error']");
 
  public void login(String user, String pass) throws InterruptedException {
 
@@ -28,4 +29,8 @@ public class LoginPage {
 
   Thread.sleep(2000);
  }
-}
+ public boolean verifyLoginFailure() {
+
+	 return driver.getCurrentUrl().contains("login.htm");
+
+	}}

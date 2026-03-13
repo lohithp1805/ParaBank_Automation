@@ -6,8 +6,8 @@
       <class name="tests.ParaBankTest">
         <methods>
           <include name="setup"/>
-          <include name="teardown"/>
-          <include name="paraBankEndToEndTest"/>
+          <include name="tearDown"/>
+          <include name="invalidLoginTest"/>
         </methods>
       </class> <!-- tests.ParaBankTest -->
     </classes>

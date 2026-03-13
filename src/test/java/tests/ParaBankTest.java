@@ -15,7 +15,7 @@ public class ParaBankTest extends BaseTest {
  @Test
  public void paraBankEndToEndTest() throws Exception {
 
-  System.out.println("Browser opened and ParaBank website launched");
+  log.info("Starting ParaBank End-to-End Test");
 
   String first = ExcelUtils.getCellData(1,0);
   String last = ExcelUtils.getCellData(1,1);
@@ -25,9 +25,9 @@ public class ParaBankTest extends BaseTest {
   String zip = ExcelUtils.getCellData(1,5);
   String phone = ExcelUtils.getCellData(1,6);
   String ssn = ExcelUtils.getCellData(1,7);
-  
+
   String username = "user" + System.currentTimeMillis();
-  String password="Tesat123";
+  String password = "Test123";
   
 
   RegisterPage register = new RegisterPage(driver);
@@ -37,6 +37,8 @@ public class ParaBankTest extends BaseTest {
   AccountPage account = new AccountPage(driver);
 
   Assert.assertTrue(account.verifyRegistration());
+  log.info("Registration successful");
+  ScreenshotUtils.captureScreenshot(driver, "RegistrationSuccess");
 
   account.logout();
 
@@ -45,9 +47,10 @@ public class ParaBankTest extends BaseTest {
   login.login(username,password);
 
   Assert.assertTrue(account.verifyLogin());
-  
+
   ScreenshotUtils.captureScreenshot(driver, "LoginSuccess");
 
-  System.out.println("End to End test completed successfully");
+  log.info("Login successful");
+  log.info("End to End test completed successfully");
  }
 }
