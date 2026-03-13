@@ -15,15 +15,22 @@ public class BaseTest {
  public void setup() {
 
   WebDriverManager.chromedriver().setup();
+  System.out.println("ChromeDriver setup completed");
+
   driver = new ChromeDriver();
+  System.out.println("Browser launched");
 
   driver.manage().window().maximize();
+  System.out.println("Browser window maximized");
+
   driver.get("https://parabank.parasoft.com/parabank/register.htm");
+  System.out.println("ParaBank website opened");
  }
 
  @AfterMethod
  public void teardown() {
 
   driver.quit();
+  System.out.println("Browser closed");
  }
 }

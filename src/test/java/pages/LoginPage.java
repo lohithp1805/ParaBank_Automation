@@ -18,9 +18,14 @@ public class LoginPage {
  public void login(String user, String pass) throws InterruptedException {
 
   driver.findElement(username).sendKeys(user);
+  System.out.println("Username entered");
+
   driver.findElement(password).sendKeys(pass);
+  System.out.println("Password entered");
 
   driver.findElement(loginBtn).click();
+  System.out.println("Login button clicked");
+
   Thread.sleep(2000);
  }
 }

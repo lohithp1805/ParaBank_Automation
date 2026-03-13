@@ -20,19 +20,34 @@ public class AccountPage {
  public boolean verifyRegistration() {
 
   String text = driver.findElement(heading).getText();
-  return text.contains("Welcome");
+
+  if(text.contains("Welcome")) {
+   System.out.println("Registration successful");
+   return true;
+  }
+
+  return false;
  }
 
  public boolean verifyLogin() {
 
   String text = driver.findElement(heading).getText();
-  return text.contains("Accounts Overview");
+
+  if(text.contains("Accounts Overview")) {
+   System.out.println("Login successful");
+   System.out.println("Account balance page displayed");
+   return true;
+  }
+
+  return false;
  }
 
  public void logout() {
 
-	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+  WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-	    wait.until(ExpectedConditions.visibilityOfElementLocated(logout)).click();
-	}
+  wait.until(ExpectedConditions.visibilityOfElementLocated(logout)).click();
+
+  System.out.println("User logged out successfully");
+ }
 }

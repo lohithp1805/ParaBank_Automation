@@ -26,16 +26,18 @@ public class RegisterPage {
 
  By registerBtn = By.xpath("//input[@value='Register']");
 
- public void registerUser(String user, String pass) {
+ public void registerUser(String first,String last,String addr,String cityName,
+                          String stateName,String zipCode,String phoneNum,
+                          String ssnNum,String user,String pass) {
 
-  driver.findElement(firstName).sendKeys("Lohith");
-  driver.findElement(lastName).sendKeys("Kumar");
-  driver.findElement(address).sendKeys("Hyderabad");
-  driver.findElement(city).sendKeys("Hyderabad");
-  driver.findElement(state).sendKeys("Telangana");
-  driver.findElement(zip).sendKeys("500001");
-  driver.findElement(phone).sendKeys("9876543210");
-  driver.findElement(ssn).sendKeys("123456");
+  driver.findElement(firstName).sendKeys(first);
+  driver.findElement(lastName).sendKeys(last);
+  driver.findElement(address).sendKeys(addr);
+  driver.findElement(city).sendKeys(cityName);
+  driver.findElement(state).sendKeys(stateName);
+  driver.findElement(zip).sendKeys(zipCode);
+  driver.findElement(phone).sendKeys(phoneNum);
+  driver.findElement(ssn).sendKeys(ssnNum);
 
   driver.findElement(username).sendKeys(user);
   driver.findElement(password).sendKeys(pass);
