@@ -3,8 +3,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven'
-        jdk 'JDK'
+        maven 'Maven_3.9'
+        jdk 'JDK_25'
     }
 
     stages {
@@ -17,37 +17,16 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
 
-        stage('Run Selenium Tests') {
+        stage('Run Tests') {
             steps {
-                sh 'mvn test'
-            }
-        }
-
-        stage('Archive Test Results') {
-            steps {
-                junit '**/target/surefire-reports/*.xml'
+                bat 'mvn test'
             }
         }
 
     }
 
-    post {
-
-        always {
-            archiveArtifacts artifacts: 'screenshots/*.png', allowEmptyArchive: true
-        }
-
-        success {
-            echo 'Automation Tests Passed!'
-        }
-
-        failure {
-            echo 'Automation Tests Failed!'
-        }
-
-    }
 }
